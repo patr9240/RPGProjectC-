@@ -19,7 +19,7 @@ string SelectClass();
 string SelectRace();
 void PrintActionMenu();
 int MoveEvent(struct EventMaps inputMaps);
-
+Character RandomEvent(Character playerChar);
 //Declare Classes
 class Class {
 private:
@@ -67,6 +67,9 @@ public:
 		setMaxHealth();
 		setHumanity(5);
 	};
+	//default constructor
+	Character() {
+	}
 	void attack() {
 
 	}//end of attack

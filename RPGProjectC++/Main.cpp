@@ -15,6 +15,7 @@ int main() {
 	string choice;
 	Map gameMap;
 	EventMaps maps;
+	Character compareChar;
 	//creates games map
 	gameMap.createMap();
 	//sends game map to map collection strut
@@ -91,7 +92,9 @@ int main() {
 					break;
 			//3 = random encounter
 				case 3:
-					cout << "3 \n";
+					//starts random event
+					compareChar = RandomEvent(Player);
+					Player = compareChar;
 					system("PAUSE");
 					break;
 			//4 = boss event

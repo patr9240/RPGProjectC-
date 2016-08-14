@@ -108,7 +108,6 @@ int MoveEvent(EventMaps inputMaps) {
 	}
 	if (inputMaps.LocationMap.at(element) == 1 && element != 0) {
 		//in a puzzle room
-		cout << "Puzzleroom! \n";
 		return 2;
 	}
 	else if (inputMaps.LocationMap.at(4) + 1 == inputMaps.GameMap.at(4)) {
@@ -118,11 +117,9 @@ int MoveEvent(EventMaps inputMaps) {
 	}
 	else if (inputMaps.LocationMap.at(0) == 1 && element == 0) {
 		//just entered the dungeon/whatever this place is
-		PrintPrisonHallway();
 		return 0;
 	}
 	else {
-		cout << "You walk down the hallway, fretting what next surprise awaits \n";
 		return 1;
 	}
 	return 0;
@@ -137,6 +134,15 @@ void PrintIntroDesc() {
 void PrintStart() {
 	cout << "You awake from a deep slumber, not knowing who you are or\n where you came from. You look around and you see you’re in a cell.\n You see the door in front of you, is wide open.\n What do you do?\n";
 }//end of PrintStart
+
+//goes through a random event, 
+Character RandomEvent(Character playerChar) {
+
+
+
+	//returns any changes to the players character to main
+	return playerChar;
+}
 
  //prints the PrisonHallway descrtiption ---- Perhaps make it a switch depending if we do different map locations?
 void PrintPrisonHallway() {
