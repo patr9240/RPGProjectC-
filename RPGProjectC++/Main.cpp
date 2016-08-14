@@ -72,27 +72,33 @@ int main() {
 			maps.setCurrentLocationMap(Player.CurrLocation);
 			//chooses event base on location and chance
 			MoveEventReturn = MoveEvent(maps);
-				//0 = Entered the dungeon thing
-				//1 = continue down the hallway (random event idk)
-				//2 = puzzle room! Fun event time!
-				//3 = boss event
+				
 			switch (MoveEventReturn) {
-			case 0:
-				cout << "0 \n";
-				system("PAUSE");
-				break;
-			case 1:
-				cout << "1 \n";
-				system("PAUSE");
-				break;
-			case 2:
-				cout << "2 \n";
-				system("PAUSE");
-				break;
-			case 3:
-				cout << "3 \n";
-				system("PAUSE");
-				break;
+			//case 0 = Entered the dungeon thing
+				case 0:
+					cout << "0 \n";
+					system("PAUSE");
+					break;
+			//1 = continue down the hallway (random event idk)
+				case 1:
+					cout << "1 \n";
+					system("PAUSE");
+					break;
+			//2 = puzzle room! Fun event time!
+				case 2:
+					cout << "2 \n";
+					system("PAUSE");
+					break;
+			//3 = random encounter
+				case 3:
+					cout << "3 \n";
+					system("PAUSE");
+					break;
+			//4 = boss event
+				case 4:
+					cout << "4 \n";
+					system("PAUSE");
+					break;
 			}
 			break;
 			//view hp

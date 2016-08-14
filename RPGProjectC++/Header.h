@@ -83,6 +83,7 @@ public:
 			return false;
 		}
 	}//end of crit
+
 #pragma warning(default:4244)
 	void health() {
 	}//end of health
