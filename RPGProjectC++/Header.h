@@ -75,7 +75,7 @@ public:
 #pragma warning(disable:4244)
 	bool crit() {
 		srand(time(NULL));
-		int randNum = rand() % 100 + 1;
+		int randNum = rand() % 100 + 1; 
 		if (randNum > 85) {
 			return true;
 		}
@@ -125,7 +125,6 @@ public:
 				CurrLocation.push_back(0);
 			}
 			for (int count = 0; count < 5; count++) {
-				//cout << "Element: " << count << ".		Location: " << CurrLocation.at(count) << "\n";
 			}
 		}
 		//else everytime a move command is issued, "moves" the player through the map.
@@ -204,6 +203,8 @@ public:
 		}
 	}
 };
+
+//structure to hold the gamemap and currlocation map vectors
 #pragma warning(default:4244)
 struct EventMaps {
 public:
