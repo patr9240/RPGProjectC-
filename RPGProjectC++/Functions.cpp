@@ -113,12 +113,12 @@ int MoveEvent(EventMaps inputMaps) {
 	}
 	else if (inputMaps.LocationMap.at(4) + 1 == inputMaps.GameMap.at(4)) {
 		//boss battle
-		cout << "Boss fight! \n";
+		PrintBossEncounter();
 		return 3;
 	}
 	else if (inputMaps.LocationMap.at(0) == 1 && element == 0) {
 		//just entered the dungeon/whatever this place is
-		cout << "You walk through the door and enter into an earily lit hallway that has a sour smell to it \n";
+		PrintPrisonHallway();
 		return 0;
 	}
 	else {
@@ -127,3 +127,28 @@ int MoveEvent(EventMaps inputMaps) {
 	}
 	return 0;
 }//end of MoveEvent Function
+
+//prints the Intro Description
+void PrintIntroDesc() {
+	cout << "In the Age of the Ancients the world\n was unformed, shrouded in mist.\n A land of grey crags, ancient trees and age old dragons.\n Then came the Flame, and with it disparity.\nHot and cold, life and death, and\n most importantly light and dark.\nFrom the darkness they came and they discovered\n the Great Lord Souls within the fire.\nNeeto, the Lord of Death, The Wizard of Ozalith\n and his sons of Chaos, and Guinevere the\nLady of Sunlight with her knights of the Sun.\n With the strength of the lords they challenged the dragons.\nGuinevere’s great bolts pierced their great scales.\n The wizards conjured mighty storms of fire.\nNeeto let loose death and disease across the land.\n The great dragon Seth the Scaleless,\n betrayed his own kin, and thus the dragons\n were no more. Then came the Age of the Flame.\n But soon the fire will fade and\n there will be only darkness. Among the\n living are seen carriers of the Darksigil." << endl;
+}// end of the Intro Description
+
+//prints the Start descrtiption
+void PrintStart() {
+	cout << "You awake from a deep slumber, not knowing who you are or\n where you came from. You look around and you see you’re in a cell.\n You see the door in front of you, is wide open.\n What do you do?\n";
+}//end of PrintStart
+
+ //prints the PrisonHallway descrtiption ---- Perhaps make it a switch depending if we do different map locations?
+void PrintPrisonHallway() {
+	cout << "You see a long corridor, lined with more locked cell doors.\n";
+}//end of PrintPrisonHallway()
+
+ //prints the RandomEncounter description ---- again a switch case depending on their map location?
+void PrintRandomEncounter() {
+	cout << "As you were walking down the hallway,\n barely being able to see 10ft in front of you.\n You hear a loud groaning and hissing sound.\n Then you see a pair of glowing yellow eyes,\n piercing the darkness. Then the savage \n undead lunges at you and attacks....\n";
+}//end of PrintRandomEncounter()
+
+ //prints the BossEncounter description ---- switch again?
+void PrintBossEncounter() {
+	cout << "You open the massive iron gates, hearing\n the hinges make loud groaning sound as the rust\n is disturbed after years of being unused.\n You see a great room with two levels to it,\n the top level only being a catwalk around\n the outside with cells all around it.\n The air smells of rotting eggs, and burnt\n flesh, you then feel as if the very warmth\n of you body has gone. You then see a\n great sythe fall from seemingly out of no where,\n and then a hand come through the floor\n and grasp it. Slowly you see more and more\n of the great beast. Snarling and shrouded\n in a great cloak that seemed to be made\n of darkness itself, it raises its great\n sythe and prepares to attack.\n";
+}//end of PrintBossEncounter()

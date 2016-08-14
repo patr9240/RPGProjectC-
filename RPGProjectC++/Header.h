@@ -19,6 +19,7 @@ string SelectClass();
 string SelectRace();
 void PrintActionMenu();
 int MoveEvent(struct EventMaps inputMaps);
+
 //Declare Classes
 class Class {
 private:
@@ -82,6 +83,7 @@ public:
 			return false;
 		}
 	}//end of crit
+
 #pragma warning(default:4244)
 	void health() {
 	}//end of health
