@@ -112,7 +112,7 @@ int MoveEvent(EventMaps inputMaps) {
 		return 2;
 	}
 	else if (inputMaps.LocationMap.at(4) + 1 == inputMaps.GameMap.at(4)) {
-		//boss battle
+		//boss battle, this happens at the value of the last element -1
 		cout << "Boss fight! \n";
 		return 3;
 	}
