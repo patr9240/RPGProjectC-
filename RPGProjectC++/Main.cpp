@@ -49,6 +49,7 @@ int main() {
 		//prints the intro story
 		PrintIntroDesc(Player);
 		system("PAUSE");
+		cout << "\n";
 
 		//loops actionsmenu until the player wins or quits
 	while (!quit) {
@@ -83,21 +84,25 @@ int main() {
 				case 0:
 					PrintStartDesc();
 					system("PAUSE");
+					cout << "\n";
 					break;
 			//1 = continue down the hallway
 				case 1:
 					//starts random event
 					Player = RandomEventAction(Player);
 					system("PAUSE");
+					cout << "\n";
 					break;
 			//2 = puzzle room! Fun event time!
 				case 2:
 					cout << "2 \n";
 					system("PAUSE");
+					cout << "\n";
 					break;
 			//3 = boss event
 				case 3:
 					system("PAUSE");
+					cout << "\n";
 					break;
 			}//end switch
 			break;
@@ -116,10 +121,14 @@ int main() {
 			quit = true;
 			break;
 		}//end of switch
-
+		if (Player.getHumanity() == -1)
+		{
+			quit = true;
+		}
 	}//end of while
 	
 	system("PAUSE");
+	cout << "\n";
 	return 0;
 
 }//end of main
