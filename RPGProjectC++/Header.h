@@ -27,7 +27,7 @@ int MoveEvent(struct EventMaps inputMaps);
 CharacterType RandomEventAction(CharacterType playerChar);
 int RandomEvent(CharacterType playerChar);
 CharacterType EndOfActEvent(CharacterType playerChar);
-
+void EndOfGame(CharacterType playerChar);
 //description prototypes
 void PrintStartDesc();
 void PrintIntroDesc(CharacterType player);

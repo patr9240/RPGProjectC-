@@ -440,8 +440,24 @@ int RandomEvent(CharacterType playerChar) {
 			return 5;
 		}
 		break;
-		//case 5: 
+		//case 5: Ooze drop from the ceiling
 	case 5:
+		cout << "You step on something soft, looking down you see there is a \njello like substance squishing around your boot. \nYou look up quickly to see a giant Ooze falling from the ceiling towards you. \nYou quickly try to move out of the way before being crushed...\n";
+		system("PAUSE");
+		cout << "\n";
+		randNum = rand() % 100 + 1;
+		if (randNum > 60) {
+			cout << "You feel a heavy object hit you from above, you get \ncrushed beneath a massive ooze. Frantically, you free \nyourself form beneath it's weight, but \nnot before being injured from the encounter.\n";
+			system("PAUSE");
+			cout << "\n";
+			return 3;
+		}
+		else {
+			cout << "You hear a *PLOP* sound behind you where the ooze landed. \n";
+			system("PAUSE");
+			cout << "\n";
+			return 5;
+		}
 		break;
 	}
 	return 0;
@@ -602,7 +618,11 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 		return playerChar;
 		break;
 	}
-}//end of EndOfActEvent fucntion
+}//end of EndOfActEvent function
+
+void EndOfGame(CharacterType playerChar) {
+	cout << "Congrats " << playerChar.getName() << "! You beat the game! \nthere needs to be some story shit here and this is when the game will save to the winners.txt file\n";
+}//end of EndOfGame function
 
 /*
  //-----------Rooms-----------------------

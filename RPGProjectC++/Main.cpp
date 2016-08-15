@@ -96,10 +96,12 @@ int main() {
 					//starts set end of act event
 					Player = EndOfActEvent(Player);
 					break;
-			//3 = boss event
+			//3 = End of game event
 				case 3:
+					EndOfGame(Player);
 					system("PAUSE");
 					cout << "\n";
+					quit = true;
 					break;
 			}//end switch
 			break;
@@ -118,6 +120,8 @@ int main() {
 			quit = true;
 			break;
 		}//end of switch
+
+		//if player runs out of humanity, game ends.
 		if (Player.getHumanity() == -1)
 		{
 			quit = true;
@@ -127,5 +131,4 @@ int main() {
 	system("PAUSE");
 	cout << "\n";
 	return 0;
-
 }//end of main
