@@ -94,7 +94,7 @@ void PrintActionMenu() {
 	cout << "1. Move \n";
 	cout << "2. View Health \n";
 	cout << "3. View Humanity \n";
-	cout << "4. Save \n";
+	cout << "4. View Winners \n";
 	cout << "5. Quit \n";
 	cout << "\nPlease select a number: \n";
 }//end of PrintActionMenu function
@@ -111,8 +111,7 @@ int MoveEvent(EventMaps inputMaps) {
 	for (element = 0; inputMaps.LocationMap.at(element) == inputMaps.GameMap.at(element); element++) {
 	}
 	if (inputMaps.LocationMap.at(element) == 1 && element != 0) {
-		cout << "		Act " << element + 1 << "\n";
-		//in a puzzle room
+		//in an act advancement room
 		return 2;
 	}
 	else if (inputMaps.LocationMap.at(4) + 1 == inputMaps.GameMap.at(4)) {
@@ -360,7 +359,7 @@ int RandomEvent(CharacterType playerChar) {
 
 		//Player selects answer
 		do {
-			cout << "Multiple Choice Answer \n";
+			cout << "Riddle Answer: \n";
 			cout << "1. 24 miles per hour. \n";
 			cout << "2. African or European swallow? \n";
 			cout << "3. What is a unladen swallow? \n";
@@ -452,31 +451,158 @@ int RandomEvent(CharacterType playerChar) {
 
 CharacterType EndOfActEvent(CharacterType playerChar) {
 	int actNum;
+	string choice;
+	int attempt;
+	bool correct = false;
 	//catches CurrLocation element index up to the GameMap element index
 	for (actNum = 0; playerChar.CurrLocation.at(actNum) == playerChar.CurrGameMap.at(actNum); actNum++) {
 
 	}
-
+	
 	//switch to decide which act riddle to use
 	switch (actNum) {
 		//use the riddle to pass act 1
 	case 1:
+		cout << "First act pass room\n";
 		cout << "\n";
+		system("PAUSE");
+		cout << "I am a box without hinges, key, or lid, \nYet golden treasure lie inside is hid.";
+		cout << "\n";
+		system("PAUSE");
+		//Player enters answer
+		cout << "Riddle Answer will be a single word in all lower case letters. \nYou will have 3 chances. \n";
+		attempt = 0;
+		do {
+			attempt++;
+			cout << "Attempt number: " << attempt << "\n";
+			cin >> choice;
+
+			//checks if user entered a digit
+			if (choice == "egg") {
+				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				system("PAUSE");
+				cout << "\n";
+				correct = true;
+			}
+			else if(attempt == 3){
+				cout << "Failure, returning to Act " << actNum << "\n\n";
+				playerChar.setHumanity(playerChar.getHumanity() - 1);
+				playerChar.setCurrHealth(playerChar.getMaxHealth());
+				playerChar.CurrLocation.at(actNum) = 0;
+				playerChar.CurrLocation.at(actNum - 1) = 1;
+				return playerChar;
+				break;
+			}
+		} while (!correct);
+		return playerChar;
 		break;
 		//use the riddle to pass act 2
 	case 2:
+		cout << " Second act pass room\n";
+		cout << "\n";
+		system("PAUSE");
+		cout << "It cannot be seen, cannot be felt,	\nCannot be heard, cannot be smelt. \nIt lies behind stars and under hills, \nAnd empty holes it fills. \nIt comes first and follows after, \nEnds life, kills laughter. \n";
+		cout << "\n";
+		system("PAUSE");
+		//Player enters answer
+		cout << "Riddle Answer will be a single word in all lower case letters. \nYou will have 3 chances. \n";
+		attempt = 0;
+		do {
+			attempt++;
+			cout << "Attempt number: " << attempt << "\n";
+			cin >> choice;
+
+			//checks if user entered a digit
+			if (choice == "dark") {
+				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				system("PAUSE");
+				cout << "\n";
+				correct = true;
+			}
+			else if (attempt == 3) {
+				cout << "Failure, returning to Act " << actNum << "\n\n";
+				playerChar.setHumanity(playerChar.getHumanity() - 1);
+				playerChar.setCurrHealth(playerChar.getMaxHealth());
+				playerChar.CurrLocation.at(actNum) = 0;
+				playerChar.CurrLocation.at(actNum - 1) = 1;
+				return playerChar;
+				break;
+			}
+		} while (!correct);
+		return playerChar;
 		break;
 		//use the riddle to pass act 3
 	case 3:
+		cout << " Third act pass room\n";
+		cout << "\n";
+		system("PAUSE");
+		cout << "This thing all things devours: \nBirds, beasts, trees, flowers; \nGnaws iron, bites steel; \nGrinds hard stones to meal; \nSlays king, ruins town, \nAnd beats high mountain down. \n";
+		cout << "\n";
+		system("PAUSE");
+		//Player enters answer
+		cout << "Riddle Answer will be a single word in all lower case letters. \nYou will have 3 chances. \n";
+		attempt = 0;
+		do {
+			attempt++;
+			cout << "Attempt number: " << attempt << "\n";
+			cin >> choice;
+
+			//checks if user entered a digit
+			if (choice == "time") {
+				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				system("PAUSE");
+				cout << "\n";
+				correct = true;
+			}
+			else if (attempt == 3) {
+				cout << "Failure, returning to Act " << actNum << "\n\n";
+				playerChar.setHumanity(playerChar.getHumanity() - 1);
+				playerChar.setCurrHealth(playerChar.getMaxHealth());
+				playerChar.CurrLocation.at(actNum) = 0;
+				playerChar.CurrLocation.at(actNum - 1) = 1;
+				return playerChar;
+				break;
+			}
+		} while (!correct);
+		return playerChar;
 		break;
 		//use the riddle to pass act 4
 	case 4:
+		cout << " Fourth act pass room\n";
+		cout << "\n";
+		system("PAUSE");
+		cout << "What has roots as nobody sees, \nIs taller than trees, \nUp, up it goes, \nAnd yet never grows?\n";
+		cout << "\n";
+		system("PAUSE");
+		//Player enters answer
+		cout << "Riddle Answer will be a single word in all lower case letters. \nYou will have 3 chances. \n";
+		attempt = 0;
+		do {
+			attempt++;
+			cout << "Attempt number: " << attempt << "\n";
+			cin >> choice;
+
+			//checks if user entered a digit
+			if (choice == "mountain") {
+				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				system("PAUSE");
+				cout << "\n";
+				correct = true;
+			}
+			else if (attempt == 3) {
+				cout << "Failure, returning to Act " << actNum << "\n\n";
+				playerChar.setHumanity(playerChar.getHumanity() - 1);
+				playerChar.setCurrHealth(playerChar.getMaxHealth());
+				playerChar.CurrLocation.at(actNum) = 0;
+				playerChar.CurrLocation.at(actNum - 1) = 1;
+				return playerChar;
+				break;
+			}
+		} while (!correct);
+		return playerChar;
 		break;
 	}
-	
-	//returns any changes to the players character to main
-	return playerChar;
-}
+}//end of EndOfActEvent fucntion
 
 /*
  //-----------Rooms-----------------------

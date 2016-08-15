@@ -91,9 +91,10 @@ int main() {
 					//starts random event
 					Player = RandomEventAction(Player);
 					break;
-			//2 = puzzle room! Fun event time!
+			//2 = End of act event.
 				case 2:
-					cout << "2 \n";
+					//starts set end of act event
+					Player = EndOfActEvent(Player);
 					break;
 			//3 = boss event
 				case 3:
@@ -109,7 +110,7 @@ int main() {
 			break;
 		case 3:
 			cout << "Humanity left: " << Player.getHumanity() << "\n";
-			//save
+			//view winners
 		case 4:
 			break;
 			//quit
@@ -128,4 +129,3 @@ int main() {
 	return 0;
 
 }//end of main
-
