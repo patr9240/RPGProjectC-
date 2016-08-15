@@ -23,6 +23,8 @@ int main() {
 	cout << "Welcome! What shall we call you?\n";
 	getline(cin, input);
 	Character Player(input);
+	//sends game map to map gameMap in character class
+	Player.CurrGameMap = gameMap.map1;
 	//sets characters race
 	Player.CharRace.setRace(SelectRace());
 	//sets character class

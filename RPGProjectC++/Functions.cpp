@@ -7,6 +7,10 @@ Date: August 9, 2016.
 Project 2
 Professor: Matt Wilson
 */
+
+//Global Variable
+vector<int> eventTracker;
+
 #pragma warning(disable:4715)
 //Class selection
 string SelectClass() {
@@ -120,6 +124,7 @@ int MoveEvent(EventMaps inputMaps) {
 		return 0;
 	}
 	else {
+		//walked normally
 		return 1;
 	}
 	return 0;
@@ -132,16 +137,53 @@ void PrintIntroDesc(CharacterType player) {
 
  //prints the Start descrtiption
 void PrintStartDesc() {
-	cout << "		Act 1\n" << "You awake from a deep slumber, not knowing who you are or \nwhere you came from. You look around and you see you’re in a cell. \nYou see the door in front of you is wide open. \nPeering out the open door, You see a long \ndimly lit corridor, lined with more locked cell doors.?\n\n\n";
+	cout << "		Act 1\n" << "You awake from a deep slumber, not knowing who you are or \nwhere you came from. You look around and you see you’re in a cell. \nYou see the door in front of you is wide open. \nPeering out the open door, You see a long \ndimly lit corridor, lined with more locked cell doors.\n\n\n";
 }//end of PrintStartDesc
 
  //Starts a random event, affects players character based on result code returned from RandomEvent
 CharacterType RandomEventAction(CharacterType playerChar) {
 
 	int eventResult;
-	eventResult = RandomEvent();
-
-
+	eventResult = RandomEvent(playerChar);
+	switch (eventResult) {
+		//1 = Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
+		case 1:
+			if (playerChar.getHumanity() > 0) {
+				playerChar.setHumanity(playerChar.getHumanity() - 1);
+				int element;
+				//catches CurrLocation element index up to the GameMap element index
+				for (element = 0; playerChar.CurrLocation.at(element) == playerChar.CurrGameMap.at(element); element++) {
+					
+				}
+				if (playerChar.CurrLocation.at(element) == 0) {
+					element = element - 1;
+				}
+				playerChar.CurrLocation.at(element) = 0;
+				cout << "You have died, luckily you still have some humanity \nleft in you, " << playerChar.getName() << ". I will start you at the beginning of Act " << element - 1 << ". \nDon't fail again, or else you may not be so lucky next time.\n";
+			}
+			else {
+				cout << "You have died on your last Humanity " << playerChar.getName() << ", \nthe " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
+			}
+			break;
+		//2 = lose 20 hp, continue on your way IF your current health > 21, else Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
+		case 2:
+			break;
+		//3 = lose 40 hp, continue on your way IF your current health > 41, else Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
+		case 3:
+			break;
+		//4 = lose 60 hp, continue on your way IF your current health > 61, else Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
+		case 4:
+			break;
+		//5 = No effect on character, continue on your way.
+		case 5:
+			break;
+		//6 = lose 50% of current hp, continue on your way IF your current health > 1, else Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
+		case 6:
+			break;
+		//7 = gain 1 humanity, continue on your way.
+		case 7:
+			break;
+	}
 	//returns any changes to the players character to main
 	return playerChar;
 }
@@ -149,17 +191,15 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 #pragma warning(disable:4244)
 #pragma warning(disable:4018)
 //random event is going to commence an event, returns the result code to RandomEventAction 
-int RandomEvent() {
+int RandomEvent(CharacterType playerChar) {
 	//variables
-	vector<int> eventTracker;
+	srand(time(NULL));
 	bool randNumLoop;
 	int randEvent;
-
 	//while false, generates a new number until it hits an unused event, if left true then uses that number for the next event
 	do {
 		randNumLoop = true;
 		//random number generator to pick event
-		srand(time(NULL));
 		randEvent = rand() % 5 + 1;
 			for (int count = 0; count < eventTracker.size(); count++) {
 				if (randEvent == eventTracker.at(count)) {
@@ -170,10 +210,25 @@ int RandomEvent() {
 	
 	//adds the event case number to the event tracker vector
 	eventTracker.push_back(randEvent);
-
-	//switch case to determin which event to run
+	//if all event cases have been used, reset eventTracker vector
+	if (eventTracker.size() == 4) {
+		eventTracker.clear();
+	}
+	//switch case to determine which event to run
 	switch (randEvent) {
+		int randNum;
 	case 1:
+		cout << "As you are walking, you step on a pressure plate, \nthe floor then falls out beneath you. \nYou reach your hand out to grab onto the ledge...\n";
+		system("PAUSE");
+		randNum = rand() % 100 + 1;
+		if (randNum > 80) {
+			cout << "Your hand slips off the ledge, causing you to plunge into the pit below. \nYou are impaled on sharpened sticks that were \ndug into the ground long ago, leaving your \nmangled " << playerChar.CharRace.getRace() << " body to rot in the depths of the pit for eternity... \n";
+			return 1;
+		}
+		else {
+			cout << "Your hand grasps the ledge of the pit with all of your strength, \nallowing you to crawl to safety to continue your adventure...\n";
+			return 5;
+		}
 		break;
 	case 2:
 		break;
@@ -209,26 +264,25 @@ void PrintSandwichWallsDesc() {
 	cout << "As you are walking, you step on a pressure plate,\n then you hear and audible click from behind\n the walls as\n they start to move closer together\n and the doors at the ends of the hallway slam shut.\n You hear a demonic voice ask, 'What is the wind speed\n velocity of an unladen swallow?'";
 }//end of SandwichWall
 
- //prints the Pitfall description
-void PrintPitfall() {
-	cout << "As you are walking, you step on a pressure plate,\n the floor then falls out beneath you.\n You reach your hand out to grab onto the ledge...\n";
-}//end of Pitfall
-
  //prints the PoisonDarts description
 void PrintPoisonDarts() {
 	cout << "As you are walking, you activate a trip wire!\n The gate behind you slams down and then you\n see what appear to be darts shooting across\n the hallway in front of you, and systematically making\n their way towards you. You must make your way\n through it by rolling.";
 }//end of PoisonDarts
-
- //-----------Mob Encounters------------
- //prints the RandomEncounter description ---- again a switch case depending on their map location?
-void PrintRandomEncounter() {
-	cout << "As you were walking down the hallway,\n barely being able to see 10ft in front of you.\n You hear a loud groaning and hissing sound.\n Then you see a pair of glowing yellow eyes,\n piercing the darkness. Then the savage \n undead lunges at you and attacks....\n";
-}//end of PrintRandomEncounter
 
  // ----------Bosses -------------
  //prints the Boss Encounter description ---- switch again?
 void PrintPrisonBossDesc() {
 	cout << "You open the massive iron gates, hearing\n the hinges make loud groaning sound as the rust\n is disturbed after years of being unused.\n You see a great room with two levels to it,\n the top level only being a catwalk around\n the outside with cells all around it.\n The air smells of rotting eggs, and burnt\n flesh, you then feel as if the very warmth\n of you body has gone. You then see a\n great sythe fall from seemingly out of no where,\n and then a hand come through the floor\n and grasp it. Slowly you see more and more\n of the great beast. Snarling and shrouded\n in a great cloak that seemed to be made\n of darkness itself, it raises its great\n sythe and prepares to attack.\n";
 }//end of PrintPrisonBossDesc
+
+*/
+
+//used events
+/*
+//prints the Pitfall description
+void PrintPitfall() {
+cout << "As you are walking, you step on a pressure plate,\n the floor then falls out beneath you.\n You reach your hand out to grab onto the ledge...\n";
+}//end of Pitfall
+
 
 */

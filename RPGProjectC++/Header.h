@@ -25,7 +25,7 @@ void PrintActionMenu();
 //misc prototypes
 int MoveEvent(struct EventMaps inputMaps);
 CharacterType RandomEventAction(CharacterType playerChar);
-int RandomEvent();
+int RandomEvent(CharacterType playerChar);
 
 //description prototypes
 void PrintStartDesc();
@@ -69,6 +69,7 @@ private:
 
 public:
 	vector<int> CurrLocation;
+	vector<int> CurrGameMap;
 	Class CharClass;
 	Race CharRace;
 	//default constructor
@@ -138,8 +139,6 @@ public:
 		if (CurrLocation.size() == 0) {
 			for (int count = 0; count < 5; count++) {
 				CurrLocation.push_back(0);
-			}
-			for (int count = 0; count < 5; count++) {
 			}
 		}
 		//else everytime a move command is issued, "moves" the player through the map.
