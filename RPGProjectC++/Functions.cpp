@@ -112,7 +112,6 @@ int MoveEvent(EventMaps inputMaps) {
 	}
 	else if (inputMaps.LocationMap.at(4) + 1 == inputMaps.GameMap.at(4)) {
 		//boss battle
-		PrintPrisonBossDesc();
 		return 3;
 	}
 	else if (inputMaps.LocationMap.at(0) == 1 && element == 0) {
@@ -135,14 +134,49 @@ void PrintStartDesc() {
 	cout << "You awake from a deep slumber, not knowing who you are or\n where you came from. You look around and you see you’re in a cell.\n You see the door in front of you, is wide open.\n What do you do?\n";
 }//end of PrintStartDesc
 
- //goes through a random event, 
-Character RandomEvent(Character playerChar) {
 
+ //Starts a random event, affects players character based on result code returned from RandomEvent
+CharacterType RandomEventAction(CharacterType playerChar) {
+	Character testChar = playerChar;
 
+	int eventResult;
+	//eventResult = RandomEvent();
 
+	testChar.CharClass.setClass("TestC");
+	testChar.CharRace.setRace("TestR");
 	//returns any changes to the players character to main
-	return playerChar;
+	return testChar;
 }
+
+#pragma warning(disable:4244)
+#pragma warning(disable:4018)
+//random event is going to commence an event, returns the result code to RandomEventAction 
+int RandomEvent() {
+	vector<int> eventTracker;
+	//while false, generates a new number until it hits a unused event, if left true then uses that number for the next event
+	bool randNumLoop;
+	do {
+		randNumLoop = true;
+		//random number generator to pick event
+
+		srand(time(NULL));
+
+		int randNum = rand() % 100 + 1;
+		for (int count = 0; count < eventTracker.max_size(); count++) {
+			if (randNum == eventTracker.at(count)) {
+				randNumLoop = false;
+			}
+		}
+	} while (!randNumLoop);
+
+	return 0;
+}
+#pragma warning(default:4244)
+#pragma warning(default:4018)
+
+
+
+
 
 //prints the PrisonHallway descrtiption ---- Perhaps make it a switch depending if we do different map locations?
 void PrintPrisonHallwayDesc() {

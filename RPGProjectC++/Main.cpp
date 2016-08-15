@@ -15,12 +15,10 @@ int main() {
 	string choice;
 	Map gameMap;
 	EventMaps maps;
-	Character compareChar;
 	//creates games map
 	gameMap.createMap();
 	//sends game map to map collection strut
 	maps.setGameMap(gameMap.map1);
-
 	//creates character name
 	cout << "Welcome! What shall we call you?\n";
 	getline(cin, input);
@@ -46,7 +44,6 @@ int main() {
 			Player.setCurrHealth(Player.getHealth() + 30);
 			Player.setMaxHealth();
 		}
-
 	cout << "Hello there " << Player.getName() << ", the " << Player.CharRace.getRace() << " " << Player.CharClass.getClass() << "! Prepare yourself for the adventure ahead!\n";
 
 	while (!quit) {
@@ -82,7 +79,8 @@ int main() {
 					break;
 			//1 = continue down the hallway (random event idk)
 				case 1:
-					cout << "1 \n";
+					//starts random event
+					Player = RandomEventAction(Player);
 					system("PAUSE");
 					break;
 			//2 = puzzle room! Fun event time!
@@ -90,16 +88,8 @@ int main() {
 					cout << "2 \n";
 					system("PAUSE");
 					break;
-			//3 = random encounter
+			//3 = boss event
 				case 3:
-					//starts random event
-					compareChar = RandomEvent(Player);
-					Player = compareChar;
-					system("PAUSE");
-					break;
-			//4 = boss event
-				case 4:
-					cout << "4 \n";
 					system("PAUSE");
 					break;
 			}

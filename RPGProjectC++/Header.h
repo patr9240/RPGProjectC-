@@ -14,12 +14,16 @@ Professor: Matt Wilson
 
 using namespace std;
 
+//Declare Type Definitions
+typedef class Character CharacterType;
+
 //Declare prototypes
 string SelectClass();
 string SelectRace();
 void PrintActionMenu();
 int MoveEvent(struct EventMaps inputMaps);
-Character RandomEvent(Character playerChar);
+CharacterType RandomEventAction(CharacterType playerChar);
+int RandomEvent();
 //Declare Classes
 class Class {
 private:
@@ -60,6 +64,10 @@ public:
 	vector<int> CurrLocation;
 	Class CharClass;
 	Race CharRace;
+	//default constructor
+	Character() {
+
+	}
 
 	Character(string Name) {
 		setName(Name);
@@ -67,9 +75,6 @@ public:
 		setMaxHealth();
 		setHumanity(5);
 	};
-	//default constructor
-	Character() {
-	}
 	void attack() {
 
 	}//end of attack
