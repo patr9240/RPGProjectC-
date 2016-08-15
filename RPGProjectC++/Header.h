@@ -144,46 +144,9 @@ public:
 			
 			cout << "Element: " << element << ".		Location: " << CurrLocation.at(element) << "\n";
 		}
-	}
+	}//end of SetLocation function
 
 };//end of Character class
-
-  //declare structures
-
-  //Enemy structure
-struct Enemy {
-
-private:
-	string Name;
-	int Health;
-	int Damage;
-
-public:
-	void health() {
-
-	}//end of health
-	void attack() {
-
-	}//end of attack
-#pragma warning(disable:4244)
-	bool crit() {
-		srand(time(NULL));
-		int randNum = rand() % 100 + 1;
-		if (randNum > 75) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}//end of crit
-	#pragma warning(default:4244)
-	void encounter() {
-
-	}//end of encounter
-	void boss() {
-
-	}//end of boss
-};//end of Enemy Struct
 
 //map structure
 #pragma warning(disable:4244)
@@ -201,7 +164,7 @@ public:
 			cout << count << ". " << map1.at(count) << "\n";
 		}
 	}
-};
+};//end of Map struct
 
 //structure to hold the gamemap and currlocation map vectors
 #pragma warning(default:4244)
@@ -216,4 +179,4 @@ public:
 	void setGameMap(vector<int> gameMap) {
 		GameMap = gameMap;
 	}
-};
+};//end of EventMaps
