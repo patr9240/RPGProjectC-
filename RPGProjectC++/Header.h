@@ -17,13 +17,20 @@ using namespace std;
 //Declare Type Definitions
 typedef class Character CharacterType;
 
-//Declare prototypes
+//menu prototypes
 string SelectClass();
 string SelectRace();
 void PrintActionMenu();
+
+//misc prototypes
 int MoveEvent(struct EventMaps inputMaps);
 CharacterType RandomEventAction(CharacterType playerChar);
 int RandomEvent();
+
+//description prototypes
+void PrintStartDesc();
+void PrintIntroDesc(CharacterType player);
+
 //Declare Classes
 class Class {
 private:

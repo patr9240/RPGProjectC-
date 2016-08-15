@@ -44,8 +44,11 @@ int main() {
 			Player.setCurrHealth(Player.getHealth() + 30);
 			Player.setMaxHealth();
 		}
-	cout << "Hello there " << Player.getName() << ", the " << Player.CharRace.getRace() << " " << Player.CharClass.getClass() << "! Prepare yourself for the adventure ahead!\n";
+		//prints the intro story
+		PrintIntroDesc(Player);
+		system("PAUSE");
 
+		//loops actionsmenu until the player wins or quits
 	while (!quit) {
 		int MoveEventReturn = 0;
 		//Player selects action from menu
@@ -61,6 +64,7 @@ int main() {
 			}
 		} while (stoi(choice) < 1 || stoi(choice) > 5);
 
+		//switch selects player selected menu action
 		switch (stoi(choice)) {
 			//move player
 		case 1:
@@ -70,14 +74,15 @@ int main() {
 			maps.setCurrentLocationMap(Player.CurrLocation);
 			//chooses event base on location and chance
 			MoveEventReturn = MoveEvent(maps);
-				
+
+			//triggers function based on where player moved in the map
 			switch (MoveEventReturn) {
-			//case 0 = Entered the dungeon thing
+			//case 0 = first entered the game
 				case 0:
-					cout << "0 \n";
+					PrintStartDesc();
 					system("PAUSE");
 					break;
-			//1 = continue down the hallway (random event idk)
+			//1 = continue down the hallway
 				case 1:
 					//starts random event
 					Player = RandomEventAction(Player);
@@ -92,8 +97,9 @@ int main() {
 				case 3:
 					system("PAUSE");
 					break;
-			}
+			}//end switch
 			break;
+
 			//view hp
 		case 2:
 			cout << "Health: " << Player.getHealth() << "/" << Player.getMaxHealth() << "\n" ;

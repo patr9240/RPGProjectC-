@@ -107,6 +107,7 @@ int MoveEvent(EventMaps inputMaps) {
 	for (element = 0; inputMaps.LocationMap.at(element) == inputMaps.GameMap.at(element); element++) {
 	}
 	if (inputMaps.LocationMap.at(element) == 1 && element != 0) {
+		cout << "		Act " << element + 1 << "\n";
 		//in a puzzle room
 		return 2;
 	}
@@ -125,57 +126,71 @@ int MoveEvent(EventMaps inputMaps) {
 }//end of MoveEvent Function
 
  //prints the Intro Description
-void PrintIntroDesc() {
-	cout << "In the Age of the Ancients the world\n was unformed, shrouded in mist.\n A land of grey crags, ancient trees and age old dragons.\n Then came the Flame, and with it disparity.\nHot and cold, life and death, and\n most importantly light and dark.\nFrom the darkness they came and they discovered\n the Great Lord Souls within the fire.\nNeeto, the Lord of Death, The Wizard of Ozalith\n and his sons of Chaos, and Guinevere the\nLady of Sunlight with her knights of the Sun.\n With the strength of the lords they challenged the dragons.\nGuinevere’s great bolts pierced their great scales.\n The wizards conjured mighty storms of fire.\nNeeto let loose death and disease across the land.\n The great dragon Seth the Scaleless,\n betrayed his own kin, and thus the dragons\n were no more. Then came the Age of the Flame.\n But soon the fire will fade and\n there will be only darkness. Among the\n living are seen carriers of the Darksigil." << endl;
+void PrintIntroDesc(CharacterType player) {
+	cout << "In the Age of the Ancients the world \nwas unformed, shrouded in mist. \nA land of grey crags, ancient trees and age old dragons. \nThen came the Flame, and with it disparity. \nHot and cold, life and death, and \nmost importantly light and dark. \nFrom the darkness they came and they discovered \nthe Great Lord Souls within the fire. \nNeeto, the Lord of Death, The Wizard of Ozalith \nand his sons of Chaos, and Guinevere the \nLady of Sunlight with her Knights of the Sun. \nWith the strength of the lords they challenged the dragons. \nGuinevere’s great bolts pierced their great scales. \nThe wizards conjured mighty storms of fire. \nNeeto let loose death and disease across the land. \nThe great dragon Seth the Scaleless, \nbetrayed his own kin, and thus the dragons \nwere no more. Then came the Age of the Flame. \nBut soon the fire will fade and \nthere will be only darkness. Among the \nliving is the carrier of the Darksigil, \na " << player.CharRace.getRace() << " " << player.CharClass.getClass() << " called " << player.getName() << ".\n\n\n";
 }// end of PrintIntroDesc
 
  //prints the Start descrtiption
 void PrintStartDesc() {
-	cout << "You awake from a deep slumber, not knowing who you are or\n where you came from. You look around and you see you’re in a cell.\n You see the door in front of you, is wide open.\n What do you do?\n";
+	cout << "		Act 1\n" << "You awake from a deep slumber, not knowing who you are or \nwhere you came from. You look around and you see you’re in a cell. \nYou see the door in front of you is wide open. \nPeering out the open door, You see a long \ndimly lit corridor, lined with more locked cell doors.?\n\n\n";
 }//end of PrintStartDesc
-
 
  //Starts a random event, affects players character based on result code returned from RandomEvent
 CharacterType RandomEventAction(CharacterType playerChar) {
-	Character testChar = playerChar;
 
 	int eventResult;
-	//eventResult = RandomEvent();
+	eventResult = RandomEvent();
 
-	testChar.CharClass.setClass("TestC");
-	testChar.CharRace.setRace("TestR");
+
 	//returns any changes to the players character to main
-	return testChar;
+	return playerChar;
 }
 
 #pragma warning(disable:4244)
 #pragma warning(disable:4018)
 //random event is going to commence an event, returns the result code to RandomEventAction 
 int RandomEvent() {
+	//variables
 	vector<int> eventTracker;
-	//while false, generates a new number until it hits a unused event, if left true then uses that number for the next event
 	bool randNumLoop;
+	int randEvent;
+
+	//while false, generates a new number until it hits an unused event, if left true then uses that number for the next event
 	do {
 		randNumLoop = true;
 		//random number generator to pick event
-
 		srand(time(NULL));
-
-		int randNum = rand() % 100 + 1;
-		for (int count = 0; count < eventTracker.max_size(); count++) {
-			if (randNum == eventTracker.at(count)) {
-				randNumLoop = false;
+		randEvent = rand() % 5 + 1;
+			for (int count = 0; count < eventTracker.size(); count++) {
+				if (randEvent == eventTracker.at(count)) {
+					randNumLoop = false;
+				}
 			}
-		}
 	} while (!randNumLoop);
+	
+	//adds the event case number to the event tracker vector
+	eventTracker.push_back(randEvent);
 
+	//switch case to determin which event to run
+	switch (randEvent) {
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	}
 	return 0;
 }
 #pragma warning(default:4244)
 #pragma warning(default:4018)
 
 
-
+/*
 
 
 //prints the PrisonHallway descrtiption ---- Perhaps make it a switch depending if we do different map locations?
@@ -215,3 +230,5 @@ void PrintRandomEncounter() {
 void PrintPrisonBossDesc() {
 	cout << "You open the massive iron gates, hearing\n the hinges make loud groaning sound as the rust\n is disturbed after years of being unused.\n You see a great room with two levels to it,\n the top level only being a catwalk around\n the outside with cells all around it.\n The air smells of rotting eggs, and burnt\n flesh, you then feel as if the very warmth\n of you body has gone. You then see a\n great sythe fall from seemingly out of no where,\n and then a hand come through the floor\n and grasp it. Slowly you see more and more\n of the great beast. Snarling and shrouded\n in a great cloak that seemed to be made\n of darkness itself, it raises its great\n sythe and prepares to attack.\n";
 }//end of PrintPrisonBossDesc
+
+*/
