@@ -96,7 +96,7 @@ int main() {
 					//starts set end of act event
 					Player = EndOfActEvent(Player);
 					break;
-			//3 = End of game event
+			//3 = End of game event, quits at the end
 				case 3:
 					EndOfGame(Player);
 					system("PAUSE");
@@ -113,6 +113,7 @@ int main() {
 		case 2:
 			cout << "Health: " << Player.getHealth() << "/" << Player.getMaxHealth() << "\n" ;
 			break;
+			//view humanity
 		case 3:
 			cout << "Humanity left: " << Player.getHumanity() << "\n";
 			//view winners

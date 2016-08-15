@@ -53,7 +53,6 @@ string SelectClass() {
 string SelectRace() {
 	string choice;
 
-
 	//Player selects race
 	do {
 		cout << "Select your race... These give small benefits to your stats.\n";
@@ -312,7 +311,7 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 	}
 	//returns any changes to the players character to main
 	return playerChar;
-}
+}//end of RandomEventAction
 
 #pragma warning(disable:4244)
 #pragma warning(disable:4018)
@@ -477,7 +476,7 @@ int RandomEvent(CharacterType playerChar) {
 		break;
 	}
 	return 0;
-}
+}//end of RandomEvent
 #pragma warning(default:4244)
 #pragma warning(default:4018)
 
@@ -509,15 +508,22 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 			cout << "Attempt number: " << attempt << "\n";
 			cin >> choice;
 
-			//checks if user entered a digit
+			//checks if user entered correct word
 			if (choice == "egg") {
 				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				//heals the player for 50 hp
+				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
+					playerChar.setCurrHealth(playerChar.getHealth() + 50);
+				}
+				else {
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
+				}
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
 			}
 			else if(attempt == 3){
-				cout << "Failure, returning to Act " << actNum << "\n\n";
+				cout << "You have failed, returning to Act " << actNum << "\n\n";
 				playerChar.setHumanity(playerChar.getHumanity() - 1);
 				playerChar.setCurrHealth(playerChar.getMaxHealth());
 				playerChar.CurrLocation.at(actNum) = 0;
@@ -544,15 +550,22 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 			cout << "Attempt number: " << attempt << "\n";
 			cin >> choice;
 
-			//checks if user entered a digit
+			//checks if user entered corrrect word
 			if (choice == "dark") {
 				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				//heals the player for 50 hp
+				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
+					playerChar.setCurrHealth(playerChar.getHealth() + 50);
+				}
+				else {
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
+				}
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
 			}
 			else if (attempt == 3) {
-				cout << "Failure, returning to Act " << actNum << "\n\n";
+				cout << "You have failed, returning to Act " << actNum << "\n\n";
 				playerChar.setHumanity(playerChar.getHumanity() - 1);
 				playerChar.setCurrHealth(playerChar.getMaxHealth());
 				playerChar.CurrLocation.at(actNum) = 0;
@@ -579,15 +592,22 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 			cout << "Attempt number: " << attempt << "\n";
 			cin >> choice;
 
-			//checks if user entered a digit
+			//checks if user entered correct owrd
 			if (choice == "time") {
 				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				//heals the player for 50 hp
+				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
+					playerChar.setCurrHealth(playerChar.getHealth() + 50);
+				}
+				else {
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
+				}
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
 			}
 			else if (attempt == 3) {
-				cout << "Failure, returning to Act " << actNum << "\n\n";
+				cout << "You have failed, returning to Act " << actNum << "\n\n";
 				playerChar.setHumanity(playerChar.getHumanity() - 1);
 				playerChar.setCurrHealth(playerChar.getMaxHealth());
 				playerChar.CurrLocation.at(actNum) = 0;
@@ -614,15 +634,22 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 			cout << "Attempt number: " << attempt << "\n";
 			cin >> choice;
 
-			//checks if user entered a digit
+			//checks if user entered correct word
 			if (choice == "mountain") {
 				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
+				//heals the player for 50 hp
+				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
+					playerChar.setCurrHealth(playerChar.getHealth() + 50);
+				}
+				else {
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
+				}
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
 			}
 			else if (attempt == 3) {
-				cout << "Failure, returning to Act " << actNum << "\n\n";
+				cout << "You have failed, returning to Act " << actNum << "\n\n";
 				playerChar.setHumanity(playerChar.getHumanity() - 1);
 				playerChar.setCurrHealth(playerChar.getMaxHealth());
 				playerChar.CurrLocation.at(actNum) = 0;
@@ -733,18 +760,4 @@ void PrintWinners() {
 			setw(25) << winnerInfo.at(index + 3) << "\n";
 	}
 	cout << "\n\n\n";
-}
-
-/*
- //-----------Rooms-----------------------
-void PrintPrisonPuzzleDesc() {
-	cout << "You enter into a large room with a small bonfire at\n its centre. As you look around you see everything is\n in ruins, walls crumbled over, wooden benches\n and chairs scattered and scattered all over.\n You can hear feint cries and moans off in the distance,\n but you are unable to decipher which direction\n they are coming from. You also see a large metal gate\n located on your right, centred in the wall.";
-}//end of PrintPrisonPuzzleDesc
-
- // ----------Bosses -------------
- //prints the Boss Encounter description ---- switch again?
-void PrintPrisonBossDesc() {
-	cout << "You open the massive iron gates, hearing\n the hinges make loud groaning sound as the rust\n is disturbed after years of being unused.\n You see a great room with two levels to it,\n the top level only being a catwalk around\n the outside with cells all around it.\n The air smells of rotting eggs, and burnt\n flesh, you then feel as if the very warmth\n of you body has gone. You then see a\n great sythe fall from seemingly out of no where,\n and then a hand come through the floor\n and grasp it. Slowly you see more and more\n of the great beast. Snarling and shrouded\n in a great cloak that seemed to be made\n of darkness itself, it raises its great\n sythe and prepares to attack.\n";
-}//end of PrintPrisonBossDesc
-
-*/
+}//end of PrintWinners
