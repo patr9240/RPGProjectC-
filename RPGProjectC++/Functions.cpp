@@ -159,12 +159,15 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 					element = element - 1;
 				}
 				playerChar.CurrLocation.at(element) = 1;
+				playerChar.setCurrHealth(playerChar.getMaxHealth());
 				cout << "You have died, luckily you still have some humanity \nleft in you, " << playerChar.getName() << ". I will start you at the beginning of Act " << element +1 << ". \nDon't fail again, or else you may not be so lucky next time.\n";
 			}
 			else {
-				cout << "You have died on your last Humanity " << playerChar.getName() << ", \nthe " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
+				cout << "You have died on your last Humanity " << playerChar.getName() << ", the " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
 				playerChar.setHumanity(-1);
 			}
+			system("PAUSE");
+			cout << "\n";
 			break;
 		//2 = lose 20 hp, continue on your way IF your current health > 21, else Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
 		case 2:
@@ -180,10 +183,11 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 						element = element - 1;
 					}
 					playerChar.CurrLocation.at(element) = 1;
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
 					cout << "You have died, luckily you still have some humanity \nleft in you, " << playerChar.getName() << ". I will start you at the beginning of Act " << element - 1 << ". \nDon't fail again, or else you may not be so lucky next time.\n";
 				}
 				else {
-					cout << "You have died on your last Humanity " << playerChar.getName() << ", \nthe " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
+					cout << "You have died on your last Humanity " << playerChar.getName() << ", the " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
 					playerChar.setHumanity(-1);
 				}
 			}
@@ -191,6 +195,8 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 				playerChar.setCurrHealth(playerChar.getHealth() - 20);
 				cout << "You have taken minor damage\n";
 			}
+			system("PAUSE");
+			cout << "\n";
 			break;
 		//3 = lose 40 hp, continue on your way IF your current health > 41, else Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
 		case 3:
@@ -206,10 +212,11 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 						element = element - 1;
 					}
 					playerChar.CurrLocation.at(element) = 1;
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
 					cout << "You have died, luckily you still have some humanity \nleft in you, " << playerChar.getName() << ". I will start you at the beginning of Act " << element + 1 << ". \nDon't fail again, or else you may not be so lucky next time.\n";
 				}
 				else {
-					cout << "You have died on your last Humanity " << playerChar.getName() << ", \nthe " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
+					cout << "You have died on your last Humanity " << playerChar.getName() << ", the " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
 					playerChar.setHumanity(-1);
 				}
 			}
@@ -217,6 +224,8 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 				playerChar.setCurrHealth(playerChar.getHealth() - 40);
 				cout << "You have taken moderate damage\n";
 			}
+			system("PAUSE");
+			cout << "\n";
 			break;
 		//4 = lose 60 hp, continue on your way IF your current health > 61, else Lose 1 humanity, return to beginning of current act IF your current humanity is > 0, else you lose the game.
 		case 4:
@@ -232,10 +241,11 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 						element = element - 1;
 					}
 					playerChar.CurrLocation.at(element) = 1;
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
 					cout << "You have died, luckily you still have some humanity \nleft in you, " << playerChar.getName() << ". I will start you at the beginning of Act " << element + 1 << ". \nDon't fail again, or else you may not be so lucky next time.\n";
 				}
 				else {
-					cout << "You have died on your last Humanity " << playerChar.getName() << ", \nthe " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
+					cout << "You have died on your last Humanity " << playerChar.getName() << ", the " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
 					playerChar.setHumanity(-1);
 				}
 			}
@@ -243,6 +253,8 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 				playerChar.setCurrHealth(playerChar.getHealth() - 60);
 				cout << "You have taken severe damage\n";
 			}
+			system("PAUSE");
+			cout << "\n";
 			break;
 		//5 = No effect on character, continue on your way.
 		case 5:
@@ -260,10 +272,11 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 						element = element - 1;
 					}
 					playerChar.CurrLocation.at(element) = 1;
+					playerChar.setCurrHealth(playerChar.getMaxHealth());
 					cout << "You have died, luckily you still have some humanity \nleft in you, " << playerChar.getName() << ". I will start you at the beginning of Act " << element + 1 << ". \nDon't fail again, or else you may not be so lucky next time.\n";
 				}
 				else {
-					cout << "You have died on your last Humanity " << playerChar.getName() << ", \nthe " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
+					cout << "You have died on your last Humanity " << playerChar.getName() << ", the " << playerChar.CharRace.getRace() << " " << playerChar.CharClass.getClass() << ". \nYou have failed your adventure, leaving the world to succumb to its fate. \n";
 					playerChar.setHumanity(-1);
 				}
 			}
@@ -271,11 +284,15 @@ CharacterType RandomEventAction(CharacterType playerChar) {
 				playerChar.setCurrHealth(playerChar.getHealth() / 2);
 				cout << "You are at half of your previous strength\n";
 			}
+			system("PAUSE");
+			cout << "\n";
 			break;
 		//7 = gain 1 humanity, continue on your way.
 		case 7:
 			playerChar.setHumanity(playerChar.getHumanity() + 1);
 			cout << "You gain 1 humanity for out smarting the foul demon in your path.\n";
+			system("PAUSE");
+			cout << "\n";
 			break;
 	}
 	//returns any changes to the players character to main
@@ -319,7 +336,7 @@ int RandomEvent(CharacterType playerChar) {
 		system("PAUSE");
 		cout << "\n";
 		randNum = rand() % 100 + 1;
-		if (randNum > 80) {
+		if (randNum > 65) {
 			cout << "Your hand slips off the ledge, causing you to plunge into the pit below. \nYou are impaled on sharpened sticks that were \ndug into the ground long ago, leaving your \nmangled " << playerChar.CharRace.getRace() << " body to rot in the depths of the pit for eternity... \n";
 			system("PAUSE");
 			cout << "\n";
@@ -404,9 +421,25 @@ int RandomEvent(CharacterType playerChar) {
 			return 4;
 		}
 		break;
-		//case 4: 
+		//case 4: Pendulem axe
 	case 4:
+		cout << "You continue your journey through the depths of the dungeon. \nSuddenly you hear a *click* sound and the screech of metal rubbing stone. \nInstinctively, you jump ahead as quickly as you can...\n";
+		system("PAUSE");
+		cout << "\n";
 
+		randNum = rand() % 100 + 1;
+		if (randNum > 40) {
+			cout << "A solid object hits you in the side, throwing you against the wall, \ncausing a deep wound. \nYou look behind you and see a giant axe hanging from the ceiling swinging from \nwall to wall, eventually retracting into one, disapearing from view. \n";
+			system("PAUSE");
+			cout << "\n";
+			return 6;
+		}
+		else {
+			cout << "You hear something cut the air where you once stood. \nYou look behind you and see a giant axe hanging from the ceiling swinging from \nwall to wall, eventually retracting into one, disapearing from view. \n";
+			system("PAUSE");
+			cout << "\n";
+			return 5;
+		}
 		break;
 		//case 5: 
 	case 5:
@@ -417,6 +450,33 @@ int RandomEvent(CharacterType playerChar) {
 #pragma warning(default:4244)
 #pragma warning(default:4018)
 
+CharacterType EndOfActEvent(CharacterType playerChar) {
+	int actNum;
+	//catches CurrLocation element index up to the GameMap element index
+	for (actNum = 0; playerChar.CurrLocation.at(actNum) == playerChar.CurrGameMap.at(actNum); actNum++) {
+
+	}
+
+	//switch to decide which act riddle to use
+	switch (actNum) {
+		//use the riddle to pass act 1
+	case 1:
+		cout << "\n";
+		break;
+		//use the riddle to pass act 2
+	case 2:
+		break;
+		//use the riddle to pass act 3
+	case 3:
+		break;
+		//use the riddle to pass act 4
+	case 4:
+		break;
+	}
+	
+	//returns any changes to the players character to main
+	return playerChar;
+}
 
 /*
  //-----------Rooms-----------------------

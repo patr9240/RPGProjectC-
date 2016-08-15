@@ -26,6 +26,7 @@ void PrintActionMenu();
 int MoveEvent(struct EventMaps inputMaps);
 CharacterType RandomEventAction(CharacterType playerChar);
 int RandomEvent(CharacterType playerChar);
+CharacterType EndOfActEvent(CharacterType playerChar);
 
 //description prototypes
 void PrintStartDesc();
@@ -79,28 +80,10 @@ public:
 
 	Character(string Name) {
 		setName(Name);
-		setCurrHealth(200);
+		setCurrHealth(150);
 		setMaxHealth();
-		setHumanity(5);
+		setHumanity(2);
 	};
-	void attack() {
-
-	}//end of attack
-
-	 //random chance to critically strike with an attack; true = crit, false = not crit
-#pragma warning(disable:4244)
-	bool crit() {
-		srand(time(NULL));
-		int randNum = rand() % 100 + 1; 
-		if (randNum > 85) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}//end of crit
-
-#pragma warning(default:4244)
 	void health() {
 	}//end of health
 

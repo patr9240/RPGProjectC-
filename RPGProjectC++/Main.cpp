@@ -90,14 +90,10 @@ int main() {
 				case 1:
 					//starts random event
 					Player = RandomEventAction(Player);
-					system("PAUSE");
-					cout << "\n";
 					break;
 			//2 = puzzle room! Fun event time!
 				case 2:
 					cout << "2 \n";
-					system("PAUSE");
-					cout << "\n";
 					break;
 			//3 = boss event
 				case 3:
