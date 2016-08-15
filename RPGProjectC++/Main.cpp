@@ -82,7 +82,7 @@ int main() {
 			switch (MoveEventReturn) {
 			//case 0 = first entered the game
 				case 0:
-					PrintStartDesc();
+					PrintAct1Desc();
 					system("PAUSE");
 					cout << "\n";
 					break;

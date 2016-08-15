@@ -131,13 +131,29 @@ int MoveEvent(EventMaps inputMaps) {
 
  //prints the Intro Description
 void PrintIntroDesc(CharacterType player) {
-	cout << "In the Age of the Ancients the world \nwas unformed, shrouded in mist. \nA land of grey crags, ancient trees and age old dragons. \nThen came the Flame, and with it disparity. \nHot and cold, life and death, and \nmost importantly light and dark. \nFrom the darkness they came and they discovered \nthe Great Lord Souls within the fire. \nNeeto, the Lord of Death, The Wizard of Ozalith \nand his sons of Chaos, and Guinevere the \nLady of Sunlight with her Knights of the Sun. \nWith the strength of the lords they challenged the dragons. \nGuinevere’s great bolts pierced their great scales. \nThe wizards conjured mighty storms of fire. \nNeeto let loose death and disease across the land. \nThe great dragon Seth the Scaleless, \nbetrayed his own kin, and thus the dragons \nwere no more. Then came the Age of the Flame. \nBut soon the fire will fade and \nthere will be only darkness. Among the \nliving is the carrier of the Darksigil, \na " << player.CharRace.getRace() << " " << player.CharClass.getClass() << " called " << player.getName() << ".\n\n\n";
+	cout << "In the Age of the Ancients the world \nwas unformed, shrouded in mist. \nA land of grey crags, ancient trees and age old dragons. \nThen came the Flame, and with it disparity. \nHot and cold, life and death, and \nmost importantly light and dark. \nFrom the darkness they came and they discovered \nthe Great Lord Souls within the fire. \nNeeto, the Lord of Death, The Wizard of Ozalith \nand his sons of Chaos, and Guinevere the \nLady of Sunlight with her Knights of Sunlight. \nWith the strength of the lords they challenged the dragons. \nGuinevere’s great bolts pierced their great scales. \nThe wizards conjured mighty storms of fire. \nNeeto let loose death and disease across the land. \nThe great dragon Seth the Scaleless, \nbetrayed his own kin, and thus the dragons \nwere no more. Then came the Age of the Flame. \nBut soon the fire will fade and \nthere will be only darkness. Among the \nliving is the carrier of the Darksigil, \na " << player.CharRace.getRace() << " " << player.CharClass.getClass() << " called " << player.getName() << ".\n\n\n";
 }// end of PrintIntroDesc
 
- //prints the Start descrtiption
-void PrintStartDesc() {
+ //prints the Act1 descrtiption
+void PrintAct1Desc() {
 	cout << "		Act 1\n" << "You awake from a deep slumber, not knowing who you are or \nwhere you came from. You look around and you see you’re in a cell. \nYou see the door in front of you is wide open. \nPeering out the open door, You see a long \ndimly lit corridor, lined with more locked cell doors.\n\n\n";
-}//end of PrintStartDesc
+}//end of PrintAct1Desc
+ //prints the Act 2 descrtiption
+void PrintAct2Desc() {
+	cout << "		Act 2\n" << "After answering the riddle correct, you pass through a large \nwooden door. You lift the large oak brace, that kept the door \nlocked, and leave the prison. You enter into a town \nof some sorts, althought the town seemed to be completely empty. \nThere was nothing to be heard, in the distance you see \na very large castle and start making your way there throught \nthe town. Along your path you see pillars of smoke rising and \nas you inspect them you see that it is a pile of burning corpses. \nThe smell was most foul, up ahead you see a large cathedral in your path, \nyou decide to check it out.\n\n\n";
+}//end of PrintAct2Desc
+ //prints the Act 3 descrtiption
+void PrintAct3Desc() {
+	cout << "		Act 3\n" << "Sloving the second riddle, you find a small hole in one of the \ncathedral walls. You make your way out and continue making your way \nthrough the town. You see more piles of burning corpses, and \nabandoned carriages. Still making your way towards the castle, \nyou approach a dense forest at the base of the castle. Now that \nyou are closer to the castle, it looks as though it is up \non a cliff face. You venture into the forest only to \ndiscover ancient ruins, and decide to investigate.\n\n\n";
+}//end of PrintAct3Desc
+ //prints the Act4 descrtiption
+void PrintAct4Desc() {
+	cout << "		Act 4\n" << "After a close call in the ruins, you finally make it out. \nYou are deep within the forest now, you have a bad feeling \ngrowing within you. You haven't heard heard or seen a \nbird since you have arrived. You see a small stone \nstructure up ahead agains the rock face where atop the \ncastle sits. Two pedestals with fires on each side \n\nof the entrance that seemed to go down into complete darkness.\n\n\n";
+}//end of PrintAct4Desc
+ //prints the Act5 descrtiption
+void PrintAct5Desc() {
+	cout << "		Act 5\n" << "Narrowly escaping the crypt beneath the castle, \nyou find a ladder leading up into the lower levels of the castle. \nAt long last you will hopefully have the answers as to \nwhy you are in this accused land. You make your way \nthrough the great halls of the castle, you see that \nthis has been well kept, not a cobweb or rat to be seen. \nIt was decorated with armor sets, sculptures, and fine art.\n\n\n";
+}//end of PrintAct5Desc
 
  //Starts a random event, affects players character based on result code returned from RandomEvent
 CharacterType RandomEventAction(CharacterType playerChar) {
@@ -342,7 +358,7 @@ int RandomEvent(CharacterType playerChar) {
 			return 1;
 		}
 		else {
-			cout << "Your hand grasps the ledge of the pit with all of your strength, \nallowing you to crawl to safety to continue your adventure...\n";
+			cout << "Your hand grasps the ledge of the pit with all of your strength, \nallowing you to pull yourself to safety to continue your adventure...\n";
 			system("PAUSE");
 			cout << "\n";
 			return 5;
@@ -621,8 +637,22 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 }//end of EndOfActEvent function
 
 void EndOfGame(CharacterType playerChar) {
-	cout << "Congrats " << playerChar.getName() << "! You beat the game! \nthere needs to be some story shit here and this is when the game will save to the winners.txt file\n";
+	string choice;
+
+	cout << "As you pass through the final gateway, you are\n blinded by sunlight. But if felt different\n against your skin, although it was extremely bright\n it felt cold. In the brightness you can make out you are in a large throne room, at the far end you can make out a throne with someone sitting upon it, clad in golden armor. You hear a voice almost wisper in your ear ever so softly, 'Come forward " << playerChar.getName() << " and know my power. I am Guinevere the Lady of Sunlight, and I have waited lifetimes for you to arrive. I sense you are one of the corrupted! Although I am old now and my life nearly spent, I have enough power to cleanse you of this curse if you wish. Merely come a take a knee young " << playerChar.CharRace.getRace() << endl;
+	//Player enters answer
+	cout << "Your answer will be a single word in all lower case letters.\n";
+
+	//option 1 - choose to kneel
+	cout << "You approach Guinevere, hesitantly. You reach the foot\nof the stairs leading to the throne and you kneel\non the first step, and bow your head. Your body\nfeels heavier than it's ever felt before. Guinevere\nslowly lifts herself out of her chair and makes her way towards you.\nYou see that she is as tall as a giant but far more gracefull.\nYou feel her hand hover over your head and you feel a warm\nsoothing feeling throughout your body. You can't even recall\nthe last time you felt warm. She removes her hand and\nfalls back into here throne exhasted. 'You are now cleansed " << playerChar.getName() << "'.\nAs you stand you notice that the room seems less bright,\nalmost like the brightness in the room is tied to the\nstrength of Guinivere. You now see that her Knights of Sunlight\nare lining the throne room. 'You must be wondering why\nI said that I had been waiting lifetimes for you? Well it is\nbecause it has been fortold that only one who is fit to\nsucceed me will be able to pass the tests. Now here you\nstand, and how fortuitous that you should arrive as my\npower is ready to leave me. When I cleansed you of the\nDarkSigil, I transfered the remainder of my power to you.\nYou will be the Lord of Light and take command of my knights,\nuntil you too shall fade into memory. For that is the\ncurse we all bear.' As Guinivere finished speaking, the light\nitself seemed to have carried here away. You then take your\nplace upon the throne and the Light fills the room once\nagain, the Knights of Sunlight were standing at attention,\nready to serve their new Lord.\n";
+	//option 2 - choose to kill
+	cout << "You approach Guinevere, hesitantly. You reach the foot\nof the stairs leading to the throne and you kneel\non the first step, and bow your head. Your body\nfeels heavier than it's ever felt before. Guinevere\nslowly lifts herself out of her chair and makes her way towards you.\nYou see that she is as tall as a giant but far more gracefull.\nYou feel her hand hover over your head and you feel a warm\nsoothing feeling throughout your body. You can't even recall\nthe last time you felt warm. As she moves closer to you,\nyou lunge at her, sword in hand and stike her down.\nAnd she fades she wispers 'Finally, I pass into memory.\nYou too will share this curse " << playerChar.getName() << "'. You look\nup and Guinevere's Knights of Sunlight, all stood\nbehind you with all manors of weapons drawn, ready to avenge\ntheir Lady. At that moment the Light had left the room\nentirely and was plunged into darkness. The warmth you felt\nwas now gone, in fact you felt nothing at all. The Knights\nremained still, as you make your way to the throne. As\nyou sit down, the room fills with Light again but not sunlight,\nbut moonlight. The Knights of Sunlight, that once shines\nas bright suns now were dull, and black. They sheathed their weapons,\nand stood ready to obey their new lord, a Lord of Darkness.\n";
+	
 	string finalChoice = "Not in yet.";
+
+	cout << "Congrats " << playerChar.getName() << "! You beat the game!\n";
+
+
 	/*Saves winner and their choices to winners.txt*/
 	//variables
 	fstream winnersFile;
