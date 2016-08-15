@@ -622,7 +622,88 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 
 void EndOfGame(CharacterType playerChar) {
 	cout << "Congrats " << playerChar.getName() << "! You beat the game! \nthere needs to be some story shit here and this is when the game will save to the winners.txt file\n";
+	string finalChoice = "Not in yet.";
+	/*Saves winner and their choices to winners.txt*/
+	//variables
+	fstream winnersFile;
+	vector<string> winnerInfo;
+
+	//adds winners.text to winnerInfo
+	winnersFile.open("..\\winners.txt");
+	if (winnersFile)
+	{
+	//read the lines from the winners file, insert it into the vector.
+	for (string line; getline(winnersFile, line);)
+	{
+		winnerInfo.push_back(line);
+	}
+	winnersFile.close();
+
+	winnerInfo.push_back(playerChar.getName());
+	winnerInfo.push_back(playerChar.CharRace.getRace() + " " + playerChar.CharClass.getClass());
+	winnerInfo.push_back(to_string(playerChar.getHumanity()));
+	winnerInfo.push_back(finalChoice);
+
+	remove("..\\winners.txt");
+	ofstream newFile("..\\winners.txt");
+	winnersFile.open("..\\winners.txt");
+			//write the contents of winnerInfo to the file
+	for (int index = 0; index < winnerInfo.size(); index++) {
+			winnersFile << winnerInfo.at(index) << "\n";
+			cout << index << ":    "<< winnerInfo.at(index) <<" \n";
+		}
+		//close winnersFile.txt
+		winnersFile.close();
+		}//end of if file opens
+		else {
+			// Display an error message.
+			cout << "Error opening the file.\n";
+			system("PAUSE");
+			exit(1);
+		}
 }//end of EndOfGame function
+
+void PrintWinners() {
+	//variables
+	fstream winnersFile;
+	vector<string> winnerInfo;
+
+	//adds winners.text to winnerInfo
+	winnersFile.open("..\\winners.txt");
+	if (winnersFile)
+	{
+		//read the lines from the HighScore file, insert it into the vector.
+		for (string line; getline(winnersFile, line);)
+		{
+			winnerInfo.push_back(line);
+		}
+		// Close the file.
+		winnersFile.close();
+	}
+	else {
+		// Display an error message.
+		cout << "Error opening the winners file, closing program.\n";
+		system("PAUSE");
+		exit(1);
+	}
+	cout << "\n\n";
+	cout << "		Winners:\n\n";
+	cout <<
+		setw(16) << "Name:" <<
+		setw(20) << "Race & Class:" <<
+		setw(14) << "Humanity:" <<
+		setw(25) << "Final Choice:" << '\n';
+
+	for (int index = 0; index < winnerInfo.size() - 3; index = index + 4)
+	{
+		cout <<
+			setw(16) << winnerInfo.at(index)  <<
+			setw(20) << winnerInfo.at(index + 1) <<
+			setw(14) << winnerInfo.at(index + 2) <<
+			setw(25) << winnerInfo.at(index + 3) << "\n";
+	}
+	cout << "\n\n\n";
+}
 
 /*
  //-----------Rooms-----------------------

@@ -28,6 +28,8 @@ CharacterType RandomEventAction(CharacterType playerChar);
 int RandomEvent(CharacterType playerChar);
 CharacterType EndOfActEvent(CharacterType playerChar);
 void EndOfGame(CharacterType playerChar);
+void PrintWinners();
+
 //description prototypes
 void PrintStartDesc();
 void PrintIntroDesc(CharacterType player);

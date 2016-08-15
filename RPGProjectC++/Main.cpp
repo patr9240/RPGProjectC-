@@ -101,6 +101,9 @@ int main() {
 					EndOfGame(Player);
 					system("PAUSE");
 					cout << "\n";
+					PrintWinners();
+					system("PAUSE");
+					cout << "\n";
 					quit = true;
 					break;
 			}//end switch
@@ -114,6 +117,9 @@ int main() {
 			cout << "Humanity left: " << Player.getHumanity() << "\n";
 			//view winners
 		case 4:
+			PrintWinners();
+			system("PAUSE");
+			cout << "\n";
 			break;
 			//quit
 		case 5:
