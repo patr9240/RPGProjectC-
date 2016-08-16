@@ -494,7 +494,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 	switch (actNum) {
 		//use the riddle to pass act 1
 	case 1:
-		cout << "First act pass room\n";
 		cout << "\n";
 		system("PAUSE");
 		cout << "I am a box without hinges, key, or lid, \nYet golden treasure lie inside is hid.";
@@ -536,7 +535,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 		break;
 		//use the riddle to pass act 2
 	case 2:
-		cout << " Second act pass room\n";
 		cout << "\n";
 		system("PAUSE");
 		cout << "It cannot be seen, cannot be felt,	\nCannot be heard, cannot be smelt. \nIt lies behind stars and under hills, \nAnd empty holes it fills. \nIt comes first and follows after, \nEnds life, kills laughter. \n";
@@ -578,7 +576,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 		break;
 		//use the riddle to pass act 3
 	case 3:
-		cout << " Third act pass room\n";
 		cout << "\n";
 		system("PAUSE");
 		cout << "This thing all things devours: \nBirds, beasts, trees, flowers; \nGnaws iron, bites steel; \nGrinds hard stones to meal; \nSlays king, ruins town, \nAnd beats high mountain down. \n";
@@ -620,7 +617,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 		break;
 		//use the riddle to pass act 4
 	case 4:
-		cout << " Fourth act pass room\n";
 		cout << "\n";
 		system("PAUSE");
 		cout << "What has roots as nobody sees, \nIs taller than trees, \nUp, up it goes, \nAnd yet never grows?\n";
