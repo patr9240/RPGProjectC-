@@ -31,8 +31,12 @@ void EndOfGame(CharacterType playerChar);
 void PrintWinners();
 
 //description prototypes
-void PrintStartDesc();
+void PrintAct1Desc();
 void PrintIntroDesc(CharacterType player);
+void PrintAct2Desc();
+void PrintAct3Desc();
+void PrintAct4Desc();
+void PrintAct5Desc();
 
 //Declare Classes
 class Class {
@@ -142,7 +146,6 @@ public:
 					CurrLocation.at(element)++;
 				}
 			
-			cout << "Element: " << element << ".		Location: " << CurrLocation.at(element) << "\n";
 		}
 	}//end of SetLocation function
 
@@ -159,9 +162,6 @@ public:
 		for (int count = 0; count < 5; count++) {
 			int randNum = rand() % 6 + 2;
 			map1.push_back(randNum);
-		}
-		for (int count = 0; count < 5; count++) {
-			cout << count << ". " << map1.at(count) << "\n";
 		}
 	}
 };//end of Map struct

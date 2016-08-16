@@ -143,15 +143,15 @@ void PrintAct2Desc() {
 }//end of PrintAct2Desc
  //prints the Act 3 descrtiption
 void PrintAct3Desc() {
-	cout << "		Act 3\n" << "Sloving the second riddle, you find a small hole in one of the \ncathedral walls. You make your way out and continue making your way \nthrough the town. You see more piles of burning corpses, and \nabandoned carriages. Still making your way towards the castle, \nyou approach a dense forest at the base of the castle. Now that \nyou are closer to the castle, it looks as though it is up \non a cliff face. You venture into the forest only to \ndiscover ancient ruins, and decide to investigate.\n\n\n";
+	cout << "		Act 3\n" << "Solving the second riddle, you find a small hole in one of the \ncathedral walls. You make your way out and continue making your way \nthrough the town. You see more piles of burning corpses, and \nabandoned carriages. Still making your way towards the castle, \nyou approach a dense forest at the base of the castle. Now that \nyou are closer to the castle, it looks as though it is up \non a cliff face. You venture into the forest only to \ndiscover ancient ruins, and decide to investigate.\n\n\n";
 }//end of PrintAct3Desc
  //prints the Act4 descrtiption
 void PrintAct4Desc() {
-	cout << "		Act 4\n" << "After a close call in the ruins, you finally make it out. \nYou are deep within the forest now, you have a bad feeling \ngrowing within you. You haven't heard heard or seen a \nbird since you have arrived. You see a small stone \nstructure up ahead agains the rock face where atop the \ncastle sits. Two pedestals with fires on each side \n\nof the entrance that seemed to go down into complete darkness.\n\n\n";
+	cout << "		Act 4\n" << "After a close call in the ruins, you finally make it out. \nYou are deep within the forest now, you have a bad feeling \ngrowing within you. You haven't heard heard or seen a \nbird since you have arrived. You see a small stone \nstructure up ahead agains the rock face where atop the \ncastle sits. Two pedestals with fires on each side \nof the entrance that seemed to go down into complete darkness.\n\n\n";
 }//end of PrintAct4Desc
  //prints the Act5 descrtiption
 void PrintAct5Desc() {
-	cout << "		Act 5\n" << "Narrowly escaping the crypt beneath the castle, \nyou find a ladder leading up into the lower levels of the castle. \nAt long last you will hopefully have the answers as to \nwhy you are in this accused land. You make your way \nthrough the great halls of the castle, you see that \nthis has been well kept, not a cobweb or rat to be seen. \nIt was decorated with armor sets, sculptures, and fine art.\n\n\n";
+	cout << "		Act 5\n" << "Narrowly escaping the crypt beneath the castle, \nyou find a ladder leading up into the lower levels of the castle. \nAt long last you will hopefully have the answers as to \nwhy you are in this accursed land. You make your way \nthrough the great halls of the castle, you see that \nthis has been well kept, not a cobweb or rat to be seen. \nIt was decorated with armor sets, sculptures, and fine art.\n\n\n";
 }//end of PrintAct5Desc
 
  //Starts a random event, affects players character based on result code returned from RandomEvent
@@ -405,7 +405,7 @@ int RandomEvent(CharacterType playerChar) {
 		break;
 		//case 3: dart trap
 	case 3:
-		cout << "As you are walking, you activate a trip wire!\n The gate behind you slams down and then you\n see what appear to be darts shooting across\n the hallway in front of you, and systematically making\n their way towards you. You must make your way through it by rolling. \n";
+		cout << "As you are walking, you activate a trip wire! \nThe gate behind you slams down and then you \nsee what appear to be darts shooting across \nthe hallway in front of you, and systematically making \ntheir way towards you. You must make your way through it by rolling. \n";
 		system("PAUSE");
 		cout << "\n";
 
@@ -462,7 +462,7 @@ int RandomEvent(CharacterType playerChar) {
 		cout << "\n";
 		randNum = rand() % 100 + 1;
 		if (randNum > 60) {
-			cout << "You feel a heavy object hit you from above, you get \ncrushed beneath a massive ooze. Frantically, you free \nyourself form beneath it's weight, but \nnot before being injured from the encounter.\n";
+			cout << "You feel a heavy object hit you from above, you get \ncrushed beneath a massive ooze. Frantically, you free \nyourself from beneath its weight, but \nnot before being injured from the encounter.\n";
 			system("PAUSE");
 			cout << "\n";
 			return 3;
@@ -510,7 +510,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 
 			//checks if user entered correct word
 			if (choice == "egg") {
-				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
 				//heals the player for 50 hp
 				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
 					playerChar.setCurrHealth(playerChar.getHealth() + 50);
@@ -518,6 +517,7 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 				else {
 					playerChar.setCurrHealth(playerChar.getMaxHealth());
 				}
+				PrintAct2Desc();
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
@@ -552,7 +552,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 
 			//checks if user entered corrrect word
 			if (choice == "dark") {
-				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
 				//heals the player for 50 hp
 				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
 					playerChar.setCurrHealth(playerChar.getHealth() + 50);
@@ -560,6 +559,7 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 				else {
 					playerChar.setCurrHealth(playerChar.getMaxHealth());
 				}
+				PrintAct3Desc();
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
@@ -594,7 +594,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 
 			//checks if user entered correct owrd
 			if (choice == "time") {
-				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
 				//heals the player for 50 hp
 				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
 					playerChar.setCurrHealth(playerChar.getHealth() + 50);
@@ -602,6 +601,7 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 				else {
 					playerChar.setCurrHealth(playerChar.getMaxHealth());
 				}
+				PrintAct4Desc();
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
@@ -636,7 +636,6 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 
 			//checks if user entered correct word
 			if (choice == "mountain") {
-				cout << "\n\n\n		Act " << actNum + 1 << "\n\n";
 				//heals the player for 50 hp
 				if (playerChar.getHealth() + 50 <= playerChar.getMaxHealth()) {
 					playerChar.setCurrHealth(playerChar.getHealth() + 50);
@@ -644,6 +643,7 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 				else {
 					playerChar.setCurrHealth(playerChar.getMaxHealth());
 				}
+				PrintAct5Desc();
 				system("PAUSE");
 				cout << "\n";
 				correct = true;
@@ -665,20 +665,47 @@ CharacterType EndOfActEvent(CharacterType playerChar) {
 
 void EndOfGame(CharacterType playerChar) {
 	string choice;
+	string finalChoice;
+	cout << "As you pass through the final gateway, you are \nblinded by sunlight. But if felt different \nagainst your skin, although it was extremely bright \nit felt cold. In the brightness you can make out you are \nin a large throne room, at the far end you can make out a \nthrone with someone sitting upon it, clad in golden armor. \nYou hear a voice almost wisper in your ear ever so softly, \n'Come forward " << playerChar.getName() << " and know my power. \nI am Guinevere the Lady of Sunlight, and I have waited \nlifetimes for you to arrive. \nI sense you are one of the corrupted! Although I am old now and my life nearly \nspent, I have enough power to cleanse you of this curse if you wish. \nMerely come and take a knee young " << playerChar.CharRace.getRace() << ".\n";
+	system("PAUSE");
+	cout << "\n";
+	//Player selects choice
+	do {
+		
+		cout << "Select your final choice.\n";
+		cout << "1. Kneel. \n";
+		cout << "2. Kill \n";
+		cout << "\nPlease select a number: \n";
 
-	cout << "As you pass through the final gateway, you are\n blinded by sunlight. But if felt different\n against your skin, although it was extremely bright\n it felt cold. In the brightness you can make out you are in a large throne room, at the far end you can make out a throne with someone sitting upon it, clad in golden armor. You hear a voice almost wisper in your ear ever so softly, 'Come forward " << playerChar.getName() << " and know my power. I am Guinevere the Lady of Sunlight, and I have waited lifetimes for you to arrive. I sense you are one of the corrupted! Although I am old now and my life nearly spent, I have enough power to cleanse you of this curse if you wish. Merely come a take a knee young " << playerChar.CharRace.getRace() << endl;
-	//Player enters answer
-	cout << "Your answer will be a single word in all lower case letters.\n";
+		cin >> choice;
 
-	//option 1 - choose to kneel
-	cout << "You approach Guinevere, hesitantly. You reach the foot\nof the stairs leading to the throne and you kneel\non the first step, and bow your head. Your body\nfeels heavier than it's ever felt before. Guinevere\nslowly lifts herself out of her chair and makes her way towards you.\nYou see that she is as tall as a giant but far more gracefull.\nYou feel her hand hover over your head and you feel a warm\nsoothing feeling throughout your body. You can't even recall\nthe last time you felt warm. She removes her hand and\nfalls back into here throne exhasted. 'You are now cleansed " << playerChar.getName() << "'.\nAs you stand you notice that the room seems less bright,\nalmost like the brightness in the room is tied to the\nstrength of Guinivere. You now see that her Knights of Sunlight\nare lining the throne room. 'You must be wondering why\nI said that I had been waiting lifetimes for you? Well it is\nbecause it has been fortold that only one who is fit to\nsucceed me will be able to pass the tests. Now here you\nstand, and how fortuitous that you should arrive as my\npower is ready to leave me. When I cleansed you of the\nDarkSigil, I transfered the remainder of my power to you.\nYou will be the Lord of Light and take command of my knights,\nuntil you too shall fade into memory. For that is the\ncurse we all bear.' As Guinivere finished speaking, the light\nitself seemed to have carried here away. You then take your\nplace upon the throne and the Light fills the room once\nagain, the Knights of Sunlight were standing at attention,\nready to serve their new Lord.\n";
-	//option 2 - choose to kill
-	cout << "You approach Guinevere, hesitantly. You reach the foot\nof the stairs leading to the throne and you kneel\non the first step, and bow your head. Your body\nfeels heavier than it's ever felt before. Guinevere\nslowly lifts herself out of her chair and makes her way towards you.\nYou see that she is as tall as a giant but far more gracefull.\nYou feel her hand hover over your head and you feel a warm\nsoothing feeling throughout your body. You can't even recall\nthe last time you felt warm. As she moves closer to you,\nyou lunge at her, sword in hand and stike her down.\nAnd she fades she wispers 'Finally, I pass into memory.\nYou too will share this curse " << playerChar.getName() << "'. You look\nup and Guinevere's Knights of Sunlight, all stood\nbehind you with all manors of weapons drawn, ready to avenge\ntheir Lady. At that moment the Light had left the room\nentirely and was plunged into darkness. The warmth you felt\nwas now gone, in fact you felt nothing at all. The Knights\nremained still, as you make your way to the throne. As\nyou sit down, the room fills with Light again but not sunlight,\nbut moonlight. The Knights of Sunlight, that once shines\nas bright suns now were dull, and black. They sheathed their weapons,\nand stood ready to obey their new lord, a Lord of Darkness.\n";
-	
-	string finalChoice = "Not in yet.";
+		if (all_of(choice.begin(), choice.end(), isdigit)) {
+
+		}
+		else {
+			choice = "0";
+		}
+	} while (stoi(choice) < 1 || stoi(choice) > 2);
+	switch (stoi(choice)) {
+	case 1:
+		//option 1 - choose to kneel
+		cout << "You approach Guinevere, hesitantly. You reach the foot\nof the stairs leading to the throne and you kneel\non the first step, and bow your head. Your body\nfeels heavier than it's ever felt before. Guinevere\nslowly lifts herself out of her chair and makes her way towards you.\nYou see that she is as tall as a giant but far more gracefull.\nYou feel her hand hover over your head and you feel a warm\nsoothing feeling throughout your body. You can't even recall\nthe last time you felt warm. She removes her hand and\nfalls back into here throne exhasted. 'You are now cleansed " << playerChar.getName() << "'.\nAs you stand you notice that the room seems less bright,\nalmost like the brightness in the room is tied to the\nstrength of Guinivere. You now see that her Knights of Sunlight\nare lining the throne room. 'You must be wondering why\nI said that I had been waiting lifetimes for you? Well it is\nbecause it has been fortold that only one who is fit to\nsucceed me will be able to pass the tests. Now here you\nstand, and how fortuitous that you should arrive as my\npower is ready to leave me. When I cleansed you of the\nDarkSigil, I transfered the remainder of my power to you.\nYou will be the Lord of Light and take command of my knights,\nuntil you too shall fade into memory. For that is the\ncurse we all bear.' As Guinivere finished speaking, the light\nitself seemed to have carried here away. You then take your\nplace upon the throne and the Light fills the room once\nagain, the Knights of Sunlight were standing at attention,\nready to serve their new Lord.\n";
+		finalChoice = "Kneeled.";
+		system("PAUSE");
+		cout << "\n";
+		break;
+	case 2:
+		//option 2 - choose to kill
+		cout << "You approach Guinevere, hesitantly. You reach the foot\nof the stairs leading to the throne and you kneel\non the first step, and bow your head. Your body\nfeels heavier than it's ever felt before. Guinevere\nslowly lifts herself out of her chair and makes her way towards you.\nYou see that she is as tall as a giant but far more gracefull.\nYou feel her hand hover over your head and you feel a warm\nsoothing feeling throughout your body. You can't even recall\nthe last time you felt warm. As she moves closer to you,\nyou lunge at her, sword in hand and stike her down.\nAnd she fades she wispers 'Finally, I pass into memory.\nYou too will share this curse " << playerChar.getName() << "'. You look\nup and Guinevere's Knights of Sunlight, all stood\nbehind you with all manors of weapons drawn, ready to avenge\ntheir Lady. At that moment the Light had left the room\nentirely and was plunged into darkness. The warmth you felt\nwas now gone, in fact you felt nothing at all. The Knights\nremained still, as you make your way to the throne. As\nyou sit down, the room fills with Light again but not sunlight,\nbut moonlight. The Knights of Sunlight, that once shines\nas bright suns now were dull, and black. They sheathed their weapons,\nand stood ready to obey their new lord, a Lord of Darkness.\n";
+		finalChoice = "Rejected.";
+		system("PAUSE");
+		cout << "\n";
+		break;
+	}//end of switch
 
 	cout << "Congrats " << playerChar.getName() << "! You beat the game!\n";
-
+	system("PAUSE");
+	cout << "\n";
 
 	/*Saves winner and their choices to winners.txt*/
 	//variables
@@ -707,7 +734,6 @@ void EndOfGame(CharacterType playerChar) {
 			//write the contents of winnerInfo to the file
 	for (int index = 0; index < winnerInfo.size(); index++) {
 			winnersFile << winnerInfo.at(index) << "\n";
-			cout << index << ":    "<< winnerInfo.at(index) <<" \n";
 		}
 		//close winnersFile.txt
 		winnersFile.close();

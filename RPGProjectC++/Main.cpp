@@ -12,7 +12,7 @@ int main() {
 	//variables
 	bool quit = false;
 	string input;
-	string choice;
+	string choice = "0";
 	Map gameMap;
 	EventMaps maps;
 	//creates games map
@@ -99,11 +99,7 @@ int main() {
 			//3 = End of game event, quits at the end
 				case 3:
 					EndOfGame(Player);
-					system("PAUSE");
-					cout << "\n";
 					PrintWinners();
-					system("PAUSE");
-					cout << "\n";
 					quit = true;
 					break;
 			}//end switch
@@ -116,11 +112,10 @@ int main() {
 			//view humanity
 		case 3:
 			cout << "Humanity left: " << Player.getHumanity() << "\n";
+			break;
 			//view winners
 		case 4:
 			PrintWinners();
-			system("PAUSE");
-			cout << "\n";
 			break;
 			//quit
 		case 5:

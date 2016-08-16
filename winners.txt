@@ -22,3 +22,19 @@ Solbeo
 Dwarf Illusionist
 2
 Not in yet.
+Thetic
+Orc Blade Master
+2
+Kneeled.
+Thetic
+Orc Ranger
+2
+Rejected.
+SomeGuy
+Dwarf Ranger
+2
+Rejected.
+Final Test
+Elf Ranger
+4
+Kneeled.
