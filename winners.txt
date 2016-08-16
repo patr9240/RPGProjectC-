@@ -1,29 +1,5 @@
 Thetic
 Orc Blade Master
-4
-The bad one.
-GenericNinja
-Elf Illusionist
-10
-The greedy one.
-Brobo
-Dwarf Ranger
-2
-The decent one.
-Chinzo
-Human Ranger
-7
-The Better one.
-Thetic
-Human Ranger
-3
-Not in yet.
-Solbeo
-Dwarf Illusionist
-2
-Not in yet.
-Thetic
-Orc Blade Master
 2
 Kneeled.
 Thetic
